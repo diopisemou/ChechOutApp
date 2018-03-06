@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ChechOutApp"
+             x:Class="ChechOutApp.MainPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            
+
+            <Style x:Key="CarouselLabelStyle" TargetType="Label">
+
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Start" />
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="Margin" Value="5" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="TextColor" Value="#F9FAFC" />
+                <Setter Property="HeightRequest" Value="25" />
+            </Style>
+
+            <Style x:Key="FooterButtonStyle" TargetType="Button">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="BorderColor" Value="Transparent" />
+                <Setter Property="HeightRequest" Value="45" />
+                <Setter Property="WidthRequest" Value="45" />
+                <Setter Property="Margin" Value="10" />
+            </Style>
+
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+
+            <StackLayout x:Name="CheckOutHeader" Orientation="Horizontal" BackgroundColor="#443E43" HeightRequest="80">
+
+            </StackLayout>
+
+            <StackLayout x:Name="CheckOutContent" BackgroundColor="#F9FAFC" HeightRequest="300">
+
+            </StackLayout>
+
+            <StackLayout x:Name="CheckOutFooter" Orientation="Horizontal" BackgroundColor="#443E43" HeightRequest="35" Padding="40,0">
+                
+                    <Image Source="home.png" Style="{StaticResource FooterButtonStyle}">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="TapGestureRecognizer_OnTappedHome"
+                                NumberOfTapsRequired="1" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Image Source="search.png" Style="{StaticResource FooterButtonStyle}">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="TapGestureRecognizer_OnTappedSearch"
+                                NumberOfTapsRequired="1" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Image Source="menu.png" Style="{StaticResource FooterButtonStyle}">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="TapGestureRecognizer_OnTappedMenu"
+                                NumberOfTapsRequired="1" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Image Source="cart.png" Style="{StaticResource FooterButtonStyle}">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="TapGestureRecognizer_OnTappedCart"
+                                NumberOfTapsRequired="1" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Image Source="account.png" Style="{StaticResource FooterButtonStyle}">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="TapGestureRecognizer_OnTappedAccount"
+                                NumberOfTapsRequired="1" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
+      
+
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>
