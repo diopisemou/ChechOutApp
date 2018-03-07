@@ -35,15 +35,30 @@
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
 
-            <StackLayout x:Name="CheckOutHeader" Orientation="Horizontal" BackgroundColor="#443E43" HeightRequest="80">
-
+            <StackLayout x:Name="CheckOutHeader" Orientation="Horizontal" BackgroundColor="#F9FAFC" HeightRequest="80" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="500">
+                <Image x:Name="Step1Image" Source="active_dot.png" Margin="60,0,0,0" ></Image>
+                <StackLayout Orientation="Vertical" >
+                    <BoxView  WidthRequest="70" HeightRequest="1" Color="#443E43" Margin="-5,40,-5,0"></BoxView>
+                </StackLayout>
+                <Image x:Name="Step2Image" Source="active_dot.png"></Image>
+                <StackLayout Orientation="Vertical">
+                    <BoxView  WidthRequest="70" HeightRequest="1" Color="#443E43" Margin="-5,40,-5,0"></BoxView>
+                </StackLayout>
+                <Image x:Name="Step3Image" Source="active_dot.png" Margin="0,0,20,0"></Image>
             </StackLayout>
 
-            <StackLayout x:Name="CheckOutContent" BackgroundColor="#F9FAFC" HeightRequest="300">
-
+            <StackLayout x:Name="CheckOutContent" BackgroundColor="#F9FAFC" HeightRequest="450">
+                <ContentView x:Name="CheckOutContentHolder" >
+                    
+                </ContentView>
             </StackLayout>
 
-            <StackLayout x:Name="CheckOutFooter" Orientation="Horizontal" BackgroundColor="#443E43" HeightRequest="35" Padding="40,0">
+            <StackLayout x:Name="CheckOutButtons" BackgroundColor="#F9FAFC" HeightRequest="60" Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center" >
+                <Button x:Name="BackButton" BackgroundColor="#DBB34A" Text="BACK" TextColor="#F9FAFC" WidthRequest="180" HeightRequest="30" Pressed="BackButton_OnPressed"></Button>
+                <Button x:Name="NextButton" BackgroundColor="#443E43" Text="NEXT" TextColor="#F9FAFC" WidthRequest="180" HeightRequest="30" Pressed="NextButton_OnPressed"></Button>
+            </StackLayout>
+
+            <StackLayout x:Name="CheckOutFooter" Orientation="Horizontal" BackgroundColor="#443E43" HeightRequest="40" Padding="40,0" Margin="0,10,0,0">
                 
                     <Image Source="home.png" Style="{StaticResource FooterButtonStyle}">
                         <Image.GestureRecognizers>

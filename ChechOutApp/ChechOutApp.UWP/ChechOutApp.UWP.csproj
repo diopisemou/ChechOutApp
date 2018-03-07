@@ -105,9 +105,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="account.png" />
+    <Content Include="active_dot.png" />
+    <Content Include="bank_transfer.png" />
     <Content Include="cart.png" />
+    <Content Include="credit_card.png" />
+    <Content Include="express_shipping.png" />
     <Content Include="home.png" />
+    <Content Include="inactive_dot.png" />
     <Content Include="menu.png" />
+    <Content Include="normal_shipping.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-100.png" />
     <Content Include="Assets\LockScreenLogo.scale-125.png" />
