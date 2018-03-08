@@ -12,9 +12,21 @@ namespace ChechOutApp.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class SecondPage : ContentPage
 	{
-		public SecondPage ()
+	    public ContentPage previouscontent = new ContentPage();
+	    public bool FormIsValid = false;
+
+        public SecondPage ()
 		{
 			InitializeComponent ();
-		}
-	}
+		    FormIsValid = false;
+        }
+
+	    public SecondPage(ContentPage a)
+	    {
+	        InitializeComponent();
+	        this.previouscontent = a;
+	        FormIsValid = false;
+
+        }
+    }
 }

@@ -4,9 +4,62 @@
              x:Class="ChechOutApp.Views.FirstPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms 1!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <StackLayout x:Name="PayementStack" HeightRequest="110"  Orientation="Vertical" Margin="0,0,0,5" BackgroundColor="#F9FAFC">
+                <StackLayout Orientation="Vertical" Padding="20,0">
+                    <Label TextColor="#443E43" Text="How You Would Like To Pay ?" ></Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Padding="80,0">
+                    <Frame x:Name="CreditCardFrame" Margin="0,0,60,0" CornerRadius="10" OutlineColor="#443E43" HasShadow="False">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="PayementCreditTapGestureRecognizer_OnTapped"></TapGestureRecognizer>
+                        </Frame.GestureRecognizers>
+                        <Image Source="credit_card.png" WidthRequest="50" HeightRequest="50" ></Image>
+                    </Frame>
+                    <Frame x:Name="BankTransfertFrame" CornerRadius="10" OutlineColor="#443E43" HasShadow="False">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="PayementBankTapGestureRecognizer_OnTapped"></TapGestureRecognizer>
+                        </Frame.GestureRecognizers>
+                        <Image Source="bank_transfer.png" WidthRequest="50" HeightRequest="50" ></Image>
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout x:Name="DeliveryStack" HeightRequest="110" Orientation="Vertical" BackgroundColor="#F9FAFC" Margin="0,0,0,5">
+                <StackLayout Orientation="Vertical" Padding="20,0">
+                    <Label TextColor="#443E43" Text="Delivery Options" ></Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Padding="80,0">
+                    <Frame x:Name="NormalShippingFrame" Margin="0,0,60,0" CornerRadius="10" OutlineColor="#443E43" HasShadow="False">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="DeliveryNormalTapGestureRecognizer_OnTapped"></TapGestureRecognizer>
+                        </Frame.GestureRecognizers>
+                        <Image Source="normal_shipping.png" WidthRequest="50" HeightRequest="50" ></Image>
+                    </Frame>
+                    <Frame x:Name="ExpressShippingFrame" CornerRadius="10" OutlineColor="#443E43" HasShadow="False">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="DeliveryExpressTapGestureRecognizer_OnTapped"></TapGestureRecognizer>
+                        </Frame.GestureRecognizers>
+                        <Image Source="express_shipping.png" WidthRequest="50" HeightRequest="50"></Image>
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout x:Name="FeesStack" HeightRequest="200" Orientation="Vertical" Margin="0,0,0,5" BackgroundColor="#F9FAFC" Padding="10,20">
+                <StackLayout Orientation="Horizontal" Padding="20,0" Margin="0,10,0,10">
+                    <Label TextColor="#443E43" Text="Subtotal" FontSize="15"></Label>
+                    <Label x:Name="SubtotalLabel" TextColor="#443E43" Text="9000" Margin="250,0,0,0" ></Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Padding="20,0" Margin="0,10,0,10">
+                    <Label TextColor="#443E43" Text="Shipping " FontSize="15" ></Label>
+                    <Label x:Name="ShippingLabel" TextColor="#443E43" Text="435" Margin="250,0,0,0"></Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Padding="20,0" Margin="0,10,0,10">
+                    <Label TextColor="#443E43" Text="VAT " FontSize="15" ></Label>
+                    <Label x:Name="VatLabel" TextColor="#443E43" Text="456" Margin="280,0,0,0" ></Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Padding="20,0" Margin="0,10,0,10">
+                    <Label TextColor="#443E43" Text="TOTAL " FontAttributes="Bold" FontSize="15"></Label>
+                    <Label x:Name="TotalLabel" TextColor="#443E43" Text="9450" Margin="255,0,0,0" ></Label>
+                </StackLayout>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

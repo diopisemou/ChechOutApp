@@ -16,6 +16,10 @@ namespace ChechOutApp
 	    string inimgsource = "inactive_dot.png";
 	    string acimgsource = "active_dot.png";
 
+	    FirstPage a = new FirstPage();
+	    SecondPage aa = new SecondPage();
+	    ThirdPage aaa = new ThirdPage();
+
         public MainPage()
 		{
 			InitializeComponent();
@@ -34,13 +38,28 @@ namespace ChechOutApp
 
 		    this.PayementStep = 0;
 
-		    Step3Image.Source = this.acimgsource;
-		    Step2Image.Source = this.acimgsource;
-		    Step3Image.Source = this.acimgsource;
+		    //Step3Image.Source = this.acimgsource;
+		    //Step2Image.Source = this.acimgsource;
+		    //Step3Image.Source = this.acimgsource;
+
+
+		    Step1Frame.HasShadow = true;
+		    //Step1Frame.OutlineColor = Color.FromHex("#443E43");
+            //Step1Frame.BackgroundColor = Color.FromHex("#F9FAFC");
+
+		    Step2Frame.HasShadow = true;
+		    //Step2Frame.OutlineColor = Color.FromHex("#443E43");
+		    //Step2Frame.BackgroundColor = Color.FromHex("#F9FAFC");
+
+		    Step3Frame.HasShadow = true;
+		    //Step3Frame.OutlineColor = Color.FromHex("#443E43");
+		    //Step3Frame.BackgroundColor = Color.FromHex("#F9FAFC");
 
             switchsteps(this.PayementStep);
-		    FirstPage a = new FirstPage();
-		    CheckOutContentHolder.Content = a.Content;
+		    this.a = new FirstPage(this);
+		    this.aa = new SecondPage(a);
+		    this.aaa = new ThirdPage(aa);
+            CheckOutContentHolder.Content = a.Content;
 		}
 
 	    private void TapGestureRecognizer_OnTappedHome(object sender, EventArgs e)
@@ -74,52 +93,71 @@ namespace ChechOutApp
 	        switch (pstep)
 	        {
                 case 0:   
-                    Step1Image.Source = this.acimgsource;
-                    Step2Image.Source = this.acimgsource;
-                    Step3Image.Source = this.acimgsource;
+                    //Step1Image.Source = this.acimgsource;
+                    //Step2Image.Source = this.acimgsource;
+                    //Step3Image.Source = this.acimgsource;
                     NextButton.Text = "NEXT";
                     pstep++;
                     this.PayementStep = pstep;
-                    FirstPage a = new FirstPage();
-                    CheckOutContentHolder.Content = a.Content;
+                    CheckOutContentHolder.Content = this.a.Content;
                     //DisplayAlert("Etape =>"+pstep, "Etape 1 Effectue step = " + this.PayementStep, "Ok");
                     //this.payementStep = this.payementStep + backbtn;
                     if (this.PayementStep > 3 || this.PayementStep < 0)
                         this.PayementStep = 0;
                     break;
                 case 1:
-                    
+
+                    if (this.a.PayementIsSelected)
+                    {
+                        if (this.a.DeliveryIsSelected)
+                        {
+                            //Step1Image.Source = this.inimgsource;
+                            NextButton.Text = "NEXT";
+                            pstep++;
+                            this.PayementStep = pstep;
+                            Step1Frame.HasShadow = true;
+                            Step1Frame.BackgroundColor = Color.FromHex("#443E43");
+                            CheckOutContentHolder.Content = this.aa.Content;
+                            //DisplayAlert("Etape 1", "Etape 1 Effectue step = "+this.PayementStep, "Ok");
+                            if (this.PayementStep > 3 || this.PayementStep < 0)
+                                this.PayementStep = 0;
+                        }
+                        else
+                        {
+                            CheckOutContentHolder.Content = this.a.Content;
+                            DisplayAlert("Erreur ", "Delivery Method Is Not Selected !", "Ok");
+                        }
+                    }
+                    else
+                    {
+                        CheckOutContentHolder.Content = this.a.Content;
+                        DisplayAlert("Erreur ", "Payement Method Is Not Selected !", "Ok");
+                    }
                    
-                    Step1Image.Source = this.inimgsource;
-                    NextButton.Text = "NEXT";
-                    pstep++;
-                    this.PayementStep = pstep;
-                    SecondPage aa = new SecondPage();
-                    CheckOutContentHolder.Content = aa.Content;
-                    //DisplayAlert("Etape 1", "Etape 1 Effectue step = "+this.PayementStep, "Ok");
-                    if (this.PayementStep > 3 || this.PayementStep < 0)
-                        this.PayementStep = 0;
                     break;
 	            case 2:
 	                
                     
-	                Step2Image.Source = this.inimgsource;
+	                //Step2Image.Source = this.inimgsource;
 	                NextButton.Text = "PAY";
 	                pstep++;
                     this.PayementStep = pstep;
-	                ThirdPage aaa = new ThirdPage();
-	                CheckOutContentHolder.Content = aaa.Content;
+	                Step2Frame.HasShadow = true;
+	                Step2Frame.BackgroundColor = Color.FromHex("#443E43");
+                    CheckOutContentHolder.Content = this.aaa.Content;
 	                //DisplayAlert("Etape 2", "Etape 2 Effectue step = " + this.PayementStep, "Ok");
                     if (this.PayementStep > 3 || this.PayementStep < 0)
 	                    this.PayementStep = 0;
                     break;
 	            case 3:
                     
-	                Step3Image.Source = this.inimgsource;
+	                //Step3Image.Source = this.inimgsource;
 	                NextButton.Text = "FINISH";
 	                pstep++;
                     this.PayementStep = pstep;
-	                //DisplayAlert("Etape 3", "Etape 3 Effectue step = " + this.PayementStep, "Ok");
+	                Step3Frame.HasShadow = true;
+	                Step3Frame.BackgroundColor = Color.FromHex("#443E43");
+                    //DisplayAlert("Etape 3", "Etape 3 Effectue step = " + this.PayementStep, "Ok");
                     if (this.PayementStep > 3 || this.PayementStep < 0)
 	                    this.PayementStep = 0;
                     break;
@@ -145,5 +183,93 @@ namespace ChechOutApp
             
 
 	    }
-	}
+
+	    private void FrameStep1TapGestureRecognizer_OnTapped(object sender, EventArgs e)
+	    {
+	        int pstep = this.PayementStep;
+	        if (pstep == 1)
+	        {
+
+	        }
+	        else if (pstep == 2)
+	        {
+
+	        }
+	        else if (pstep == 3)
+	        {
+
+	        }
+	        else if (pstep == 0)
+	        {
+
+	        }
+        }
+
+	    private void FrameStep2TapGestureRecognizer_OnTapped(object sender, EventArgs e)
+	    {
+	        int pstep = this.PayementStep;
+	        if (pstep == 1)
+	        {
+	            if (this.a.PayementIsSelected)
+	            {
+	                if (this.a.DeliveryIsSelected)
+	                {
+	                    //Step1Image.Source = this.inimgsource;
+	                    NextButton.Text = "NEXT";
+	                    pstep++;
+	                    this.PayementStep = pstep;
+	                    Step1Frame.HasShadow = true;
+	                    Step1Frame.BackgroundColor = Color.FromHex("#443E43");
+	                    CheckOutContentHolder.Content = this.aa.Content;
+	                    //DisplayAlert("Etape 1", "Etape 1 Effectue step = "+this.PayementStep, "Ok");
+	                    if (this.PayementStep > 3 || this.PayementStep < 0)
+	                        this.PayementStep = 0;
+	                }
+	                else
+	                {
+	                    CheckOutContentHolder.Content = this.a.Content;
+	                    DisplayAlert("Erreur ", "Delivery Method Is Not Selected !", "Ok");
+	                }
+	            }
+	            else
+	            {
+	                CheckOutContentHolder.Content = this.a.Content;
+	                DisplayAlert("Erreur ", "Payement Method Is Not Selected !", "Ok");
+	            }
+            }
+	        else if (pstep == 2)
+	        {
+	            
+	        }
+            else if (pstep == 3)
+            {
+	             
+	        }
+	        else if (pstep == 0)
+	        {
+	            DisplayAlert("Erreur ", "Step 1 is incomplete !", "Ok");
+            }
+        }
+
+	    private void FrameStep3TapGestureRecognizer_OnTapped(object sender, EventArgs e)
+	    {
+	        int pstep = this.PayementStep;
+	        if (pstep == 1)
+            {
+
+	        }
+	        else if (pstep == 2)
+	        {
+
+	        }
+	        else if (pstep == 3)
+	        {
+
+	        }
+	        else if (pstep == 0)
+	        {
+	            DisplayAlert("Erreur ", "Step 2 and Step 3 are incomplete !", "Ok");
+            }
+        }
+    }
 }

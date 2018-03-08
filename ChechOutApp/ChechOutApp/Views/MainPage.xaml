@@ -36,15 +36,28 @@
         <StackLayout Orientation="Vertical">
 
             <StackLayout x:Name="CheckOutHeader" Orientation="Horizontal" BackgroundColor="#F9FAFC" HeightRequest="80" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="500">
-                <Image x:Name="Step1Image" Source="active_dot.png" Margin="60,0,0,0" ></Image>
+                <Frame x:Name="Step1Frame" CornerRadius="200" WidthRequest="35" HeightRequest="5" Padding="0,0,0,0" HasShadow="True" Margin="80,22,0,22" BackgroundColor="#443E43" >
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="FrameStep1TapGestureRecognizer_OnTapped"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
+                </Frame>
+                
                 <StackLayout Orientation="Vertical" >
                     <BoxView  WidthRequest="70" HeightRequest="1" Color="#443E43" Margin="-5,40,-5,0"></BoxView>
                 </StackLayout>
-                <Image x:Name="Step2Image" Source="active_dot.png"></Image>
+                <Frame  x:Name="Step2Frame" CornerRadius="200" WidthRequest="35" HeightRequest="5" Padding="0,0,0,0" HasShadow="True" Margin="0,22,0,22" BackgroundColor="#443E43" >
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="FrameStep2TapGestureRecognizer_OnTapped"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
+                </Frame>
                 <StackLayout Orientation="Vertical">
                     <BoxView  WidthRequest="70" HeightRequest="1" Color="#443E43" Margin="-5,40,-5,0"></BoxView>
                 </StackLayout>
-                <Image x:Name="Step3Image" Source="active_dot.png" Margin="0,0,20,0"></Image>
+                <Frame  x:Name="Step3Frame" CornerRadius="200" WidthRequest="35" HeightRequest="5" Padding="0,0,0,0" HasShadow="True" Margin="0,22,0,22" BackgroundColor="#443E43" >
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="FrameStep3TapGestureRecognizer_OnTapped"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
+                </Frame>
             </StackLayout>
 
             <StackLayout x:Name="CheckOutContent" BackgroundColor="#F9FAFC" HeightRequest="450">

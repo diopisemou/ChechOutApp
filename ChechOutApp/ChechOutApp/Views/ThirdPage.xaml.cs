@@ -12,9 +12,21 @@ namespace ChechOutApp.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ThirdPage : ContentPage
 	{
-		public ThirdPage ()
+	    public ContentPage previouscontent = new ContentPage();
+	    public bool ReviewIsValid = false;
+
+        public ThirdPage ()
 		{
 			InitializeComponent ();
-		}
-	}
+		    ReviewIsValid = false;
+        }
+
+	    public ThirdPage(ContentPage a)
+	    {
+	        InitializeComponent();
+	        ListView lst = new ListView();
+	        this.previouscontent = a;
+	        ReviewIsValid = false;
+        }
+    }
 }

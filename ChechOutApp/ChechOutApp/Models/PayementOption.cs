@@ -12,5 +12,16 @@ namespace ChechOutApp.Models
         public string Name { get => name; set => name = value; }
         public int Price { get => price; set => price = value; }
         public string ImageSource1 { get => ImageSource; set => ImageSource = value; }
+
+        public PayementOption()
+        { }
+
+
+        public PayementOption(string nm, Int32 prc, string img)
+        {
+            Name = nm;
+            Price = prc;
+            ImageSource1 = img ;
+        }
     }
 }

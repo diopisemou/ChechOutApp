@@ -106,10 +106,10 @@
     <AndroidResource Include="Resources\drawable\inactive_dot.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\drawable\bank_transfer.png" />
-    <Content Include="Resources\drawable\credit_card.png" />
-    <Content Include="Resources\drawable\express_shipping.png" />
-    <Content Include="Resources\drawable\normal_shipping.png" />
+    <AndroidResource Include="Resources\drawable\bank_transfer.png" />
+    <AndroidResource Include="Resources\drawable\credit_card.png" />
+    <AndroidResource Include="Resources\drawable\express_shipping.png" />
+    <AndroidResource Include="Resources\drawable\normal_shipping.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
